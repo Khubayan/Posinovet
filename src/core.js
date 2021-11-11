@@ -199,7 +199,7 @@ dividerDigits = (divider) => {
         }
     }
     else if(convertTo == 'oktal') {
-        if(Math.floor(rawDigit % divider) < 1 || Math.floor(rawDigit % divider) > 7 || isNaN(Math.floor(rawDigit % divider))) {
+        if(Math.floor(rawDigit % divider) < 0 || Math.floor(rawDigit % divider) > 7 || isNaN(Math.floor(rawDigit % divider))) {
             k.innerText = `${rawDigit} gagal dikonversi!`
             return 0
         }
