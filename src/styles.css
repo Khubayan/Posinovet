@@ -1,0 +1,9 @@
+.btn-delete {
+    z-index: 999;
+    float: right;
+    margin-right: 5rem;
+}
+
+.m-conv {
+    margin-bottom: -3rem;
+}
