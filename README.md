@@ -9,3 +9,6 @@ Mengkonversi bilangan desimal ke biner / hexadesima / oktal atau sebaliknya deng
 
 # Demo
 Demo aplikasi klik <a href="https://posinovet-1.khubayan.repl.co">disini.</a>
+
+# Note
+ - Masih dalam versi beta, pembaruan demi penyempurnaan dan kenyamanan akan terus dilakukan 🥳.
