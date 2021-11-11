@@ -117,7 +117,7 @@ multiplyDigits = (multiplier, typeDigits) => {
                     }
                 }
                 else if(typeDigits == 'oktal') {
-                    if(digits[i] < 1 || digits[i] > 7 || isNaN(digits[i])) {
+                    if(digits[i] < 0 || digits[i] > 7 || isNaN(digits[i])) {
                         k.innerText = `${rawDigit} gagal dikonversi!`
                         return 0
                     }
