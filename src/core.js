@@ -167,13 +167,13 @@ multiplyDigits = (multiplier, typeDigits) => {
             return 0
         } 
         else if(!isNaN(result)) {
-            k.innerText +=`${digits[i]} x ${multiplier} ^ ${i} = ${digits[i] * multiplier ** i}`
-            k.innerHTML += '</br>'
+            k.innerHTML += `${digits[i]} x ${multiplier}<sup>${i}</sup> = ${digits[i] * multiplier ** i} </br>`
+            // k.innerHTML += ''
             result += digits[i] * multiplier ** i
             if(i === digits.length - 1) {
-                k.innerText += '---------------- +'
+                k.innerHTML += '---------------- +'
                 k.innerHTML += '</br>'
-                k.innerText += `Desimal dari ${rawDigit} adalah = ${result}` 
+                k.innerHTML += `Desimal dari (${rawDigit})<sub>${multiplier}</sub> adalah = ${result}` 
             }
         }
         
@@ -264,10 +264,18 @@ dividerDigits = (divider) => {
         
         const k = document.getElementById('k')
         if(convertTo == 'hexa' && isNaN(valueAfterDivided)) {
-            k.innerText += `${rawDigit} / ${divider} = ${Math.floor(rawDigit / divider)}, sisa ${Math.floor(rawDigit % divider)}, ${Math.floor(rawDigit % divider)} = ${valueAfterDivided}`
+            if(Math.floor(rawDigit / divider) < 1) {
+                k.innerHTML += `s${rawDigit} / ${divider} = ${Math.floor(rawDigit / divider)}, sisa ${Math.floor(rawDigit % divider)}, ${Math.floor(rawDigit % divider)} = <span class="text-danger">${valueAfterDivided}</span>`
+            } else {
+                k.innerHTML += `${rawDigit} / ${divider} = ${Math.floor(rawDigit / divider)}, sisa ${Math.floor(rawDigit % divider)}, ${Math.floor(rawDigit % divider)} = ${valueAfterDivided}`
+            }
             k.innerHTML += '</br>'
         } else {
-            k.innerText += `${rawDigit} / ${divider} = ${Math.floor(rawDigit / divider)}, sisa ${Math.floor(rawDigit % divider)}`
+            if(Math.floor(rawDigit / divider) < 1) {
+                k.innerHTML += `${rawDigit} / ${divider} = ${Math.floor(rawDigit / divider)}, sisa <span class="text-danger">${Math.floor(rawDigit % divider)}</span>`
+            } else {
+                k.innerHTML += `${rawDigit} / ${divider} = ${Math.floor(rawDigit / divider)}, sisa ${Math.floor(rawDigit % divider)}`
+            }
             k.innerHTML += '</br>'
         }
 
@@ -286,9 +294,13 @@ dividerDigits = (divider) => {
     }
 
     
-    k.innerText += '---------------------'
+    k.innerHTML += '---------------------'
     k.innerHTML += '</br>'
-    k.innerText += `${convertTo} dari ${rawDigit} adalah = ${result}`
+    if(rawDigit == '0') {
+        k.innerHTML += `${convertTo} dari ${rawDigit} adalah = ${rawDigit}`
+    } else {
+        k.innerHTML += `${convertTo} dari ${rawDigit} adalah = ${result}`
+    }
 
 }
 
